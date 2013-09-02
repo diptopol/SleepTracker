@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * Created with IntelliJ IDEA.
  * User: diptopol
@@ -20,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/" )
 public class LogInManager {
 
     @Autowired
@@ -28,7 +30,7 @@ public class LogInManager {
 
     Logger logger = LoggerFactory.getLogger(LogInManager.class);
 
-    @RequestMapping("logInForm")
+    @RequestMapping(value = {"logInForm",""})
     public String showLogInForm(Model model) {
 
         model.addAttribute("message","logInForm");
@@ -37,13 +39,27 @@ public class LogInManager {
 
     @RequestMapping(value = "logInSubmission",method = RequestMethod.POST)
     public String logInSubmission(@RequestParam("userName") String username,
-                                  @RequestParam("passWord") String password,Model model) {
+                                  @RequestParam("passWord") String password,Model model,HttpSession session) {
 
         logger.info("In logInSubmission username="+username+" password="+password);
         User user = userDao.findUserBy(username, password);
-        logger.info("In logInSubmission user.username="+user.getUsername()+" user.password="+user.getPassword());
 
-        return "hello";
+        if(user == null) {
+            return "loginForm";
+        }
+        else {
+            session.setAttribute("userId",user.getUserId());
+            return "redirect:/sleepRecords";
+
+        }
+
+
+    }
+
+    @RequestMapping(value = "logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "loginForm";
     }
 
 }

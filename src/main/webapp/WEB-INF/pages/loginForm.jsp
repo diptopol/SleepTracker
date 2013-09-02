@@ -5,16 +5,16 @@
   Time: 10:08 AM
   To change this template use File | Settings | File Templates.
 --%>
-<%@taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<C:url var="head" value="header.jsp"/>
+<c:url var="head" value="header.jsp"/>
 
 <jsp:include page="${head}">
     <jsp:param name="title" value="logInForm" />
 </jsp:include>
 
-<form id="login" method="post" action="<C:url value="logInSubmission"/>">
-    <table border="0">
+<form id="login" method="post" action="<c:url value="logInSubmission"/>">
+    <table border="0" id="login_table">
         <tr>
             <td><label for="username_input">Username:</label></td>
 
@@ -34,5 +34,5 @@
 </form>
 
 
-<C:url var="footer" value="footer.jsp"/>
+<c:url var="footer" value="footer.jsp"/>
 <jsp:include page="${footer}" />

@@ -4,6 +4,7 @@ import net.therap.sleeptracker.domain.User;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 /**
@@ -22,10 +23,33 @@ public class UserDaoImpl implements UserDao{
     @Override
     public User findUserBy(String username, String password) {
 
-       User user =  (User)entityManager.createQuery("SELECT user FROM User user where user.username=:name and user.password=:password")
-                                .setParameter("name",username)
-               .setParameter("password", password)
-               .getSingleResult();
-       return user;
+       try {
+           User user =  (User)entityManager.createQuery("SELECT user FROM User user where user.username=:name and user.password=:password")
+                   .setParameter("name",username)
+                   .setParameter("password", password)
+                   .getSingleResult();
+           return user;
+       }
+       catch (NoResultException noResult)  {
+           return null;
+       }
+
+    }
+
+    @Override
+    public User findUserBy(long userId) {
+
+        User user;
+        try {
+            user =  (User) entityManager.createQuery("SELECT user FROM User user where user.userId=:id")
+                    .setParameter("id",userId)
+                    .getSingleResult();
+
+        }
+        catch (NoResultException noResult) {
+            return null;
+        }
+        return user;
+
     }
 }

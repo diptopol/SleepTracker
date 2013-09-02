@@ -1,12 +1,16 @@
+body {
+    font-weight: normal;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
 #header {
     width: 100%;
-    height: 10%;
-    margin-top: 0;
+    height:50px;
     background-color: #ffa81e;
 }
 
 #header a {
-    padding-top: 2%;
+    /*padding-top: 2%;*/
     float: right;
     font-family: serif;
     font-size: larger;
@@ -20,8 +24,237 @@
     background-color: #ffa81e;
 }
 #content {
-    position: relative;
-    height: 85%;
     width: 100%;
+    min-height: 800px;
+    height:auto;
+    position:relative;
+    margin: 0px auto;
+    color: #000000;
+}
+
+#content_window {
+    width:58.2%;
+    height:auto;
+    min-height: 750px;
+    float:left;
+    background: #FFF;
+    padding: 20px 10px 30px 10px;
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+    color: #000000;
+}
+
+
+
+        /*entry a form*/
+
+
+#record-form {
+    background-color:#F8F8F8;
+    width:465px;
+    padding:20px;
+    margin: 50px auto;
+    border: 6px solid orange;
+    -moz-border-radius:15px;
+    -webkit-border-radius:15px;
+    border-radius:15px;
+    position:relative;
+}
+
+#login_table {
+    padding-left: 33%;
+    padding-top: 20%;
+}
+
+
+#record-form input,
+#record-form select,
+#record-form textarea {
+
+    border: 1px solid #CEE1E8;
+    margin-bottom:20px;
+    padding:4px;
+}
+
+.input_width {
+    width:450px;
+}
+
+#record-form input:focus,
+#record-form select:focus,
+#record-form textarea:focus {
+    border: 1px solid #AFCDD8;
+    background-color: #EBF2F4;
+}
+
+#record-form textarea {
+    height:150px;
+    resize: none;
+}
+
+#record-form label {
+    display:block;
+}
+
+#record-form .required {
+    font-weight:bold;
+    color:#F00;
+}
+
+#req-field-desc {
+    font-style:italic;
+}
+
+#record-form #submit {
+    width: 100px;
+    background-color:#333;
+    color:#FFF;
+    border:none;
+    display:block;
+    float:right;
+    margin-bottom:0px;
+    margin-right:6px;
+    background-color:orange;
+    -moz-border-radius:8px;
+}
+
+#record-form #submit-button:hover {
+    background-color: #A6CFDD;
+}
+
+#record-form #submit-button:active {
+    position:relative;
+    top:1px;
+}
+
+#nightmare_yes {
+    width: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+     /*sleeping record show table*/
+
+#record_header {
+    padding: 4px 0pt 0pt 6px;
+    font-weight: bold;
+}
+
+#record_table {
+    width: 100%;
+    color: #000000;
+
+    background-color:#F8F8F8;
+    width:465px;
+    padding:20px;
+    margin: 50px auto;
+    border: 6px solid orange;
+    -moz-border-radius:15px;
+    -webkit-border-radius:15px;
+    border-radius:15px;
+    position:relative;
+
+
+}
+#record_table th {
+    padding: 0.5em;
+    font-size:  0.9em;
     text-align: center;
+
+}
+#record_table tr {
+    border-bottom: 1px solid orange;
+
+}
+
+#record_table td {
+    padding: 0.5em;
+    font-size:  0.9em;
+    text-align: center;
+
+}
+#record_table td  {
+    color: #000000;
+}
+
+.tr_white {
+    background-color: #FFF;
+}
+
+.tr_gray {
+    background-color: moccasin;
+}
+
+
+
+     /*side menu css*/
+
+#side_menu {
+    padding: 0px 0 0 0;
+    width:20%;
+    height:auto;
+    min-height: 500px;
+    background:#FFF;
+    float:left;
+}
+
+
+.left_menu_item h4{
+    padding:5px 0;
+    font: 16px Verdana, Geneva, sans-serif;
+    -moz-transition:background 0.3s linear 0s;
+    text-align:center;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    border-left: 1px solid #000;
+}
+
+.left_menu_item h4 a {
+    color: black;
+}
+
+.left_menu_item h4:hover {
+    background: #45484d;
+}
+.left_menu_item h4:hover a{
+    color: #fff;
+}
+
+
+nav{
+    width:80%;
+    float: right;
+    padding-top: 70px;
+    /*    margin-top: 70px;*/
+}
+
+
+
+
+.ui-timepicker-div .ui-widget-header {
+    margin-bottom: 8px;
+}
+.ui-timepicker-div dl {
+    text-align: left;
+}
+.ui-timepicker-div dl dt {
+    height: 25px;
+}
+.ui-timepicker-div dl dd {
+    margin: -25px 0 10px 65px;
+}
+.ui-timepicker-div td {
+    font-size: 90%;
+}
+
+.ui-priority-secondary {
+    display: none;
 }
